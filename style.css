@@ -1,0 +1,319 @@
+        :root {
+            /* Luxury Theme Colors - Reverted */
+            --color-primary-dark: #1a1a1a; 
+            --color-secondary-dark: #2c2c2c; 
+            --color-accent-gold: #b08d57; 
+            --color-accent-gold-hover: #c9a36a;
+            --color-text-light: #f0f0f0; 
+            --color-text-medium: #a0a0a0; 
+            --color-text-dark: #333333; 
+            --color-background-light: #ffffff;
+            --color-border-light: #444444; 
+            --color-border-form: #d1d1d1; 
+        }
+
+        .text-text-secondary-light { /* Added definition for dynamically generated content */
+            color: var(--color-text-medium);
+        }
+
+        html { 
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--color-primary-dark);
+            color: var(--color-text-light);
+        }
+
+        h1, h2, h3, .font-serif-display {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        .hero-bg-luxury {
+            background-image: url('https://www.roumeihotel.com.tw/assets/images/roumei-boutique-1.jpg'); 
+            background-size: cover;
+            background-position: center;
+            transition: background-image 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+        .hero-bg-luxury::before { 
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn-primary-luxury { /* Reverted to Luxury Style */
+            background-color: var(--color-accent-gold);
+            color: var(--color-background-light);
+            padding: 0.75rem 2rem;
+            border-radius: 2px; 
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary-luxury:hover {
+            background-color: var(--color-accent-gold-hover);
+        }
+
+        .btn-secondary-luxury { /* Reverted to Luxury Style */
+            border: 1px solid var(--color-accent-gold);
+            color: var(--color-accent-gold);
+            padding: 0.7rem 1.8rem;
+            border-radius: 2px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .btn-secondary-luxury:hover {
+            background-color: var(--color-accent-gold);
+            color: var(--color-background-light);
+        }
+        
+        .form-input-luxury { /* Reverted to Luxury Style */
+            background-color: var(--color-background-light);
+            border: 1px solid var(--color-border-form);
+            color: var(--color-text-dark);
+            border-radius: 2px;
+            padding: 0.75rem 1rem; /* Adjusted from modern */
+            width: 100%;
+        }
+        .form-input-luxury:focus {
+            border-color: var(--color-accent-gold);
+            box-shadow: 0 0 0 2px rgba(176, 141, 87, 0.3); 
+            outline: none;
+        }
+        .form-label-luxury { /* Reverted to Luxury Style */
+            color: var(--color-text-dark); 
+            font-size: 0.875rem;
+            margin-bottom: 0.25rem;
+            display: block;
+        }
+        
+        /* Styles for new room list item - Adapted for Luxury Theme */
+        .room-list-item-luxury { /* Changed from -modern */
+            background-color: var(--color-secondary-dark);
+            border-radius: 2px; /* Consistent with luxury theme */
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--color-border-light); /* Consistent border */
+            display: flex;
+            flex-direction: column; 
+        }
+        @media (min-width: 768px) { 
+            .room-list-item-luxury {
+                flex-direction: row; 
+            }
+        }
+        .room-list-item-luxury:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        .room-list-item-luxury .room-image-container {
+            flex-shrink: 0;
+        }
+        .room-list-item-luxury .room-image-container img {
+            width: 100%;
+            height: 200px; 
+            object-fit: cover;
+        }
+        @media (min-width: 768px) { 
+            .room-list-item-luxury .room-image-container {
+                width: 250px; 
+            }
+             .room-list-item-luxury .room-image-container img {
+                height: 100%; 
+                min-height: 220px; 
+            }
+        }
+        .room-list-item-luxury .room-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .room-list-item-luxury .room-details {
+            flex-grow: 1;
+        }
+        .room-list-item-luxury .room-actions {
+            margin-top: 1rem;
+            text-align: right; 
+        }
+        @media (min-width: 1024px) { 
+             .room-list-item-luxury .room-content {
+                flex-direction: row; 
+                justify-content: space-between;
+            }
+            .room-list-item-luxury .room-actions {
+                margin-top: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: center; 
+                align-items: flex-end; 
+                min-width: 200px; 
+            }
+             .room-list-item-luxury .room-actions .btn-secondary-luxury { /* Ensure button uses luxury style */
+                margin-top: 0.75rem;
+             }
+        }
+
+        .modal-luxury { 
+            display: none; position: fixed; z-index: 1000; left: 0; top: 0;
+            width: 100%; height: 100%; overflow: auto; 
+            background-color: rgba(0,0,0,0.7);
+        }
+        .modal-content-luxury {
+            background-color: var(--color-secondary-dark);
+            color: var(--color-text-light);
+            margin: 8% auto; padding: 2rem; border-radius: 2px;
+            width: 90%; max-width: 600px;
+            border: 1px solid var(--color-border-light);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .modal-close-btn-luxury {
+            color: var(--color-text-medium); font-size: 2rem; font-weight: 100;
+            position: absolute; top: 1rem; right: 1.5rem;
+        }
+        .modal-close-btn-luxury:hover { color: var(--color-text-light); }
+
+        #mobile-menu-luxury {
+            transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+            background-color: var(--color-primary-dark);
+            opacity: 0;
+            pointer-events: none;
+        }
+        #mobile-menu-luxury.open {
+            transform: translateX(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        /* Date Picker Styling for Luxury Theme */
+        .date-picker-modal-luxury {
+            z-index: 1010; /* Ensure it's above header (z-50) and other modals (z-1000) */
+        }
+        .date-picker-modal-luxury .date-picker-content {
+            background-color: var(--color-secondary-dark);
+            color: var(--color-text-light);
+            border-radius: 2px;
+        }
+        .date-picker-modal-luxury .calendar-day {
+            color: var(--color-text-light);
+        }
+        .date-picker-modal-luxury .calendar-day:hover:not(.disabled):not(.selected-date) { background-color: var(--color-border-light); }
+        .date-picker-modal-luxury .calendar-day.disabled { color: #666; }
+        .date-picker-modal-luxury .calendar-day.selected-start, 
+        .date-picker-modal-luxury .calendar-day.selected-end { background-color: var(--color-accent-gold); color: var(--color-background-light); }
+        .date-picker-modal-luxury .calendar-day.in-range:not(.selected-start):not(.selected-end) { background-color: rgba(176, 141, 87, 0.2); }
+        .date-picker-modal-luxury .calendar-day.today { border: 1px solid var(--color-accent-gold); }
+        .date-picker-modal-luxury .btn-date-picker-done { /* Uses btn-secondary-luxury for consistency */
+            border: 1px solid var(--color-accent-gold);
+            color: var(--color-accent-gold);
+        }
+        .date-picker-modal-luxury .btn-date-picker-done:hover {
+            background-color: var(--color-accent-gold);
+            color: var(--color-background-light);
+        }
+        .date-picker-modal-luxury #month-year-display1,
+        .date-picker-modal-luxury #month-year-display2,
+        .date-picker-modal-luxury .grid-cols-7 div { 
+            color: var(--color-text-light);
+        }
+        .date-picker-modal-luxury #prev-month-btn,
+        .date-picker-modal-luxury #next-month-btn {
+            color: var(--color-text-medium);
+        }
+         .date-picker-modal-luxury #prev-month-btn:hover,
+        .date-picker-modal-luxury #next-month-btn:hover {
+            color: var(--color-text-light);
+        }
+        .page-section-luxury.hidden { display: none; } /* Renamed from -modern */
+
+        /* Styles for Available Rooms section with light background */
+        #roomsList-luxury {
+            background-color: var(--color-background-light);
+        }
+        /* #roomsList-luxury .control-button { */ /* Removed as control button moved to header */
+            /* color: var(--color-text-dark); */
+            /* border-color: var(--color-border-form); */ /* Lighter border consistent with forms on light bg */
+        /* } */
+        /* #roomsList-luxury .control-button:hover { */
+            /* color: var(--color-accent-gold); */
+            /* border-color: var(--color-accent-gold); */
+        /* } */
+
+        /* Language and Currency Selector Styles - Adapted for Luxury Theme */
+        .global-controls {
+            position: relative; 
+        }
+        .control-button {
+            background-color: transparent;
+            border: 1px solid var(--color-border-light); /* Subtle border */
+            color: var(--color-text-medium); /* Corrected from --text-secondary-light */
+            padding: 0.5rem 1rem;
+            border-radius: 2px; /* Consistent with luxury buttons */
+            transition: all 0.2s ease;
+            font-size: 0.9rem;
+        }
+        .control-button:hover {
+            border-color: var(--color-accent-gold);
+            color: var(--color-accent-gold);
+        }
+        .control-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%; 
+            right: 0;
+            background-color: var(--color-secondary-dark);
+            border: 1px solid var(--color-border-light);
+            border-radius: 2px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            z-index: 10;
+            min-width: 160px; 
+        }
+        .control-dropdown a {
+            color: var(--color-text-light); /* Corrected from --text-primary-light */
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            display: block;
+            font-size: 0.9rem;
+        }
+        .control-dropdown a:hover {
+            background-color: var(--color-border-light); /* Darker hover for dropdown items */
+        }
+
+        /* Featured Room Card (Homepage) - Reverted to Luxury Style */
+        .featured-room-card-luxury { /* Ensure this class is used on homepage cards */
+            background-color: var(--color-secondary-dark);
+            border: 1px solid var(--color-border-light);
+            border-radius: 2px;
+            overflow: hidden;
+            display: flex; 
+            flex-direction: column; 
+        }
+        .featured-room-card-luxury img {
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .featured-room-card-luxury:hover img {
+            transform: scale(1.05);
+        }
+        .featured-room-card-content-luxury { 
+            padding: 1.5rem; 
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1; 
+        }
+        .featured-room-card-details-luxury { 
+            flex-grow: 1; 
+        } 
