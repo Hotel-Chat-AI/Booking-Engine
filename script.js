@@ -516,6 +516,14 @@
             return new Date(dateString).toLocaleDateString(locale, options);
         }
         
+        function animateAvailableRoomsOnLoad() {
+            const cards = document.querySelectorAll('.room-list-item-luxury');
+            cards.forEach((card, i) => {
+                setTimeout(() => {
+                    card.classList.add('in-view');
+                }, 100 + i * 120);
+            });
+        }
         function populateLuxuryRoomListings() {
             const container = document.getElementById('available-rooms-container-luxury');
             const noRoomsMsg = document.getElementById('no-rooms-message-luxury');
@@ -552,6 +560,7 @@
                 }
             });
             noRoomsMsg.style.display = roomsFound ? 'none' : 'block';
+            animateAvailableRoomsOnLoad();
         }
 
         function showRoomDetailLuxury(roomId) {
@@ -708,3 +717,20 @@
             }
             showPageLuxury('home-luxury'); 
         }); 
+
+        // --- Room Card Scroll Animation ---
+        function animateRoomCardsOnScroll() {
+            const cards = document.querySelectorAll('.featured-room-card-luxury');
+            const triggerBottom = window.innerHeight * 0.85;
+            cards.forEach(card => {
+                const cardTop = card.getBoundingClientRect().top;
+                if (cardTop < triggerBottom) {
+                    card.classList.add('in-view');
+                } else {
+                    card.classList.remove('in-view');
+                }
+            });
+        }
+        window.addEventListener('scroll', animateRoomCardsOnScroll);
+        window.addEventListener('resize', animateRoomCardsOnScroll);
+        document.addEventListener('DOMContentLoaded', animateRoomCardsOnScroll); 
