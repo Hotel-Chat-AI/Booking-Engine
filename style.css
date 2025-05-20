@@ -108,6 +108,9 @@
             border: 1px solid var(--color-border-light); /* Consistent border */
             display: flex;
             flex-direction: column; 
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
         }
         @media (min-width: 768px) { 
             .room-list-item-luxury {
@@ -115,8 +118,8 @@
             }
         }
         .room-list-item-luxury:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.18);
         }
         .room-list-item-luxury .room-image-container {
             flex-shrink: 0;
@@ -164,6 +167,10 @@
              .room-list-item-luxury .room-actions .btn-secondary-luxury { /* Ensure button uses luxury style */
                 margin-top: 0.75rem;
              }
+        }
+        .room-list-item-luxury.in-view {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .modal-luxury { 
@@ -299,6 +306,13 @@
             overflow: hidden;
             display: flex; 
             flex-direction: column; 
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .featured-room-card-luxury.in-view {
+            opacity: 1;
+            transform: translateY(0);
         }
         .featured-room-card-luxury img {
             aspect-ratio: 16 / 10;
